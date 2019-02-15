@@ -196,6 +196,7 @@
     {
       "field": "POP",
       "field_id": 2,
+      "description": "Descripcion de POP",
       "categories": [{
           "category_name": "Best Pop Solo Performance",
           "category_id": 5,
@@ -414,7 +415,7 @@
     {
       "field": "CONTEMPORARY INSTRUMENTAL MUSIC",
       "field_id": 4,
-      "description": "",
+      "description": "Descripcon de CIM",
       "categories": [{
         "category_name": "Best Contemporary Instrumental Album",
         "category_id": 7,
@@ -451,7 +452,7 @@
     {
       "field": "ROCK",
       "field_id": 5,
-      "description": "",
+      "description": "Descripcion de Rock",
       "categories": [{
           "category_name": "Best Rock Album",
           "description": "For albums containing at least 51% playing time of new rock, hard rock or metal recordings.",
@@ -581,7 +582,7 @@
     {
       "field": "ALTERNATIVE",
       "field_id": 6,
-      "description": "",
+      "description": "Descripcion de Alternative",
       "categories": [{
         "category_name": "Best Alternative Music Album",
         "description": "Vocal or Instrumental.",
@@ -617,7 +618,7 @@
     {
       "field": "R&B",
       "field_id": 7,
-      "description": "",
+      "description": "Descripcion de R&B",
       "categories": [{
           "category_name": "Best R&B Performance",
           "description": "For new vocal or instrumental R&B recordings",
@@ -685,7 +686,7 @@
     {
       "field": "RAP",
       "field_id": 8,
-      "description": "",
+      "description": "Descripcion de RAP",
       "categories": [{
           "category_name": "Best Rap Performance",
           "description": "For a Rap performance. Singles or Tracks only.",
@@ -753,7 +754,7 @@
     {
       "field": "NEW AGE",
       "field_id": 9,
-      "description": "",
+      "description": "Descripcion de NEW AGE",
       "categories": [{
         "category_name": "Best New Age Album",
         "description": "For albums containing at least 51% playing time of new vocal or instrumental new age recordings.",
@@ -789,7 +790,7 @@
     {
       "field": "JAZZ",
       "field_id": 10,
-      "description": "",
+      "description": "Descripcion de JAZZ",
       "categories": [{
         "category_name": "Best Improvised Jazz Solo",
         "description": "For an instrumental jazz solo performance. Two equal performers on one recording may be eligible as one entry. If the soloist listed appears on a recording billed to another artist, the latter's name is in parenthesis for identification. Singles or Tracks only.",
