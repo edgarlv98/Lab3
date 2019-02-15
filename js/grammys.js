@@ -16,8 +16,9 @@ $.ajax({
             $("#category").text($(this).children("option:selected").text());
         });
 
-        //hola
-        for(let i=0; i<data.)
+        for(let i=0; i<data.fields.field.length; i++){
+            
+        }
 
     },
     error: function(error_msg){
