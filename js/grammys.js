@@ -16,6 +16,7 @@ $.ajax({
             $("#category").text($(this).children("option:selected").text());
         });
 
+        //hola
         for(let i=0; i<data.)
 
     },
