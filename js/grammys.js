@@ -1,55 +1,57 @@
 $.ajax({
-    url : "data/grammys.json",
-    type : "GET",
-    dataType : "json",
-    success: function(data){
-        let new_html = "";
+	url : "data/grammys.json",
+	type : "GET",
+	dataType : "json",
+	success: function(data){
+		console.log(data.fields[0].field);
+		let new_html = "";
+		for(let i = 0; i < data.fields.length; i++){
+			new_html += `
+			<option value="${data.fields[i].field_id}">
+			${data.fields[i].field}
+			</option>
+			`;
+		}
 
-        for( let i=0; i<data.fields.length; i++){
-            new_html += `
-                <option value="
-                    ${data.fields[i].field_id}">${data.fields[i].field}
-                </option>
-            `;
-        }
-
-        var id=0;
-
-        $("#category_types").append(new_html);
-        $("#category_types").on('change', function(event){
-            $("#field").text($(this).children("option:selected").text());
-            id=parseInt($("#category_types").val());
+		$("#category_types").append(new_html);
+		$("#category_types").on('change', function(event){
+            let id = $("#category_types").val();
+            $("#nominees_List").empty();
+			$("#field").text(data.fields[id-1].field);
             $("#description").text(data.fields[id-1].description);
-            console.log(id);
-        });
+		    Categories(data.fields[id-1].categories);
+		});
 
-        var id2=0;
 
-        $("#category_types").on('change', function(event){
-            let id3=parseInt($("#category_types").val());
-            for(let i=0; i<data.fields[id3].categories.length; i++){
-                $("#category").text(data.fields[id3-1].categories[i].category_name);
-                $("#descCategory").text(data.fields[id3-1].categories[i].description);
-                for(let j=0; j<data.fields[id3].categories[j].nominees.length; j++){
-                    $("#descCategory").text(data.fields[id3-1].categories[i].nominees[j].nominee);
-                }
-            }
-        });
-
-/*
-        for(let i=0; i<data.fields[id].categories.length; i++){
-            console.log(data.fields[id].categories[i].category_name);
-            console.log(data.fields[id].categories[i].description);
-        }
-
-        for(let j=0; j<data.fields[id].categories[id2].nominees.length; j++){
-            console.log(data.fields[id].categories[id2].nominees[j].nominee);
-            console.log(data.fields[id].categories[id2].nominees[j].artist);
-            console.log(data.fields[id].categories[id2].nominees[j].info);
-        }
-*/
-    },
-    error: function(error_msg){
-        console.log(error_msg);
-    }
+	},
+	error: function(error_msg){
+		console.log(error_msg);
+	}
 });
+
+function Categories(categories){
+	let new_html = "";
+	for (let i = 0; i < categories.length; i++){
+		new_html+= `
+		<h3>
+		${categories[i].category_name}
+		</h3>
+		`;
+		for(let j = 0; j < categories[i].nominees.length; j++){
+                if(j === categories[i].winner_id)
+                {
+                new_html+=`<h4 class="winner">${categories[i].nominees[j].nominee}</h4><span>WINNER!</span>`
+                new_html+=`<p> ${categories[i].nominees[j].artist} </p>`
+                new_html+=`<p> ${categories[i].nominees[j].info} </p>`
+                }
+                else{
+                new_html+=`<h4>${categories[i].nominees[j].nominee}</h4>`
+                new_html+=`<p> ${categories[i].nominees[j].artist} </p>`
+                new_html+=`<p> ${categories[i].nominees[j].info} </p>`
+                }
+		}
+
+    }
+	$("#nominees_List").append(new_html);
+	
+}
